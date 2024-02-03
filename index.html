@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="Xin Zhao">
+    <meta name="Keywords" content="Cloud, Computing, Security, Encryption, Cloud Service Provider, Cloud Service Customer, IaaS, PaaS, SaaS, Public Cloud, Private Cloud, Threats, VulnerabilityGenerative AI; Cybersecurity; Artificial intelligence; Cyber Offense; Cyber Defense; ChatGPT">
+    <meta name="Description" content="Final Project Paper for CSE 570s. This paper is about a survey of Generative Cybersecurity AI">
+    <title>A Survey of Generative Cybersecurity AI</title>
+</head>
+<body>
+
+<h1>A Survey of Generative Cybersecurity AI</h1>
+
+<table style="width:100%"><TR style="vertical-align:bottom"><TD style="width:80%; text-align:left"> 
+<b>Xin Zhao</b> 
+(A paper written under the guidance of <a href="../../../index.html">Prof. Raj Jain</a>)
+</TD><td style="width:20%; text-align:right">
+<a href="../xxx.pdf">Download<img src="../../../ftp/pdf.jpg" alt="PDF" height="48" width="48"></a></td></tr></table>
+
+<h2>Abstract</h2>
+
+<p>
+    In the pattern of network security, network attacks, and network defenses have a dynamic relationship that promotes 
+    each other to develop together. With the development of generative artificial intelligence, generative network 
+    security artificial intelligence has provided richer methods for both offense and defense. 
+    This article conducts a comprehensive analysis of the current application of generative artificial intelligence in 
+    network attacks and defense. It not only discusses the potential threats that generative artificial intelligence 
+    may pose to network security but also summarizes its current application in defense systems.
+</p>
+
+<h2>Keywords</h2>
+
+<p>
+    Generative AI; Cybersecurity; Artificial intelligence; Cyber Offense; Cyber Defense; ChatGPT
+</p>
+
+<h2><a id="toc"></a>Table of Contents:</h2>
+<ul>
+    <li><a href="#intro">1. Introduction</a></li>
+    <li><a href="#CyberOffense"> 2. Generative AI for Cyber Offense</a>
+        <ul>
+            <li><a href="#sea">2.1 Social Engineering Attacks</a></li>
+            <li><a href="#phishing">2.2 Phishing</a></li>
+            <li><a href="#Malware">2.3 Malware</a></li>
+            <li><a href="#sql">2.4 SQL Injection</a></li>
+            <li><a href="#zda">2.5 Zero-day Attack</a></li>
+            <li><a href="#f3v">2.6 Fake Voice, Videos, Photos</a></li>
+        </ul>
+    </li>
+    <li><a href="#CyberDefense"> 3. Generative AI for Cyber Defense</a>
+        <ul>
+            <li><a href="#eventman">3.1 Security Information and Event Management</a></li>
+            <li><a href="#vulman">3.2 Vulnerability Management</a></li>
+            <li><a href="#antimal">3.3 Anti-malware Software</a></li>
+            <li><a href="#ids/ips">3.4 Intrusion Detection Systems and Intrusion Prevention Systems (IDS/IPS)</a></li>
+            <li><a href="#emptrain">3.5 Employee Training</a></li>
+        </ul>
+    </li>
+    <li><a href="#summary">4. Summary</a></li>
+    <li><a href="#ref">5. References</a></li>
+    <li><a href="#acronym">6. List of Acronyms</a></li>
+</ul>
+
+<h2><a id="intro"></a> 1. Introduction </h2>
+
+<p>
+    The landscape of network security is always challenged by the rapid evolution of digital infrastructure that 
+    threatens modern society. With the application of generative artificial intelligence, represented by ChatGPT, in 
+    all aspects of life, generative artificial intelligence (referring to a subset of artificial intelligence algorithms 
+    and models, focusing on generating new content, whether it is text, images, audio, or even complex simulations) is 
+    tantamount to a double-edged sword for the field of network security. While providing innovative methods to 
+    strengthen network defense, it also provides Cybersecurity that brings new threats.
+</p>
+
+<p>In terms of offense, traditional attack methods include: </p>
+<ol>
+    <li>Social engineering attacks
+        <p>
+            Using social skills to trick an individual or employee into revealing confidential information.
+        </p>
+    </li>
+    <li> Phishing
+        <p>
+            Pretending to be a trusted entity via email or other means of communication to trick users into 
+            providing sensitive information such as usernames, passwords, and credit card details.
+        </p>
+    </li>
+    <li>Malware
+        <ol>
+            <li><p>Virus: Malicious code that replicates itself and infects other programs or files.</p></li>
+            <li><p>Worm: Malicious code that does not require a host program and can replicate itself and spread 
+            autonomously in the network.</p></li>
+            <li><p>Horse: Software that looks legitimate but hides malicious functions.</p></li>
+            <li><p>Ransomware: Malware that encrypts a user's files and demands a ransom to unlock them.</p></li>
+            <li><p>Software that secretly monitors a user's behavior without the user's consent.</p></li>
+            <li><p>Software that forces advertisements to be displayed, sometimes containing spyware or other malicious 
+            code.</p></li>
+        </ol>
+    </li>
+    <li> Man-in-the-middle attack
+        <p>
+            An attacker can intercept and potentially modify information between communicating parties, which can be 
+            done on an unencrypted Wi-Fi network.
+        </p>
+    </li>
+    <li> Denial of Service Attacks and Distributed Denial of Service Attacks
+        <p>
+            An attack that overloads servers or network resources by rendering them unavailable, DDoS uses attack 
+            traffic from multiple sources.
+        </p>
+    </li>
+    <li> SQL injection
+        <p>
+            By inserting malicious SQL code into the backend database, the attacker can control or access the data 
+            stored in the database.
+        </p>
+    </li>
+    <li> Zero-day attacks
+        <p>
+            Attacks that exploit unknown vulnerabilities in software often occur before software developers understand 
+            and fix them.
+        </p>
+    </li>
+    <li> Cross-site scripting attacks
+        <p>
+            Attackers inject malicious scripts into legitimate web pages viewed by other users.
+        </p>
+    </li>
+    <li> Advanced persistent threats
+        <p>
+            A long-term, latent attack targeting a specific entity to continually steal data or monitor network activity.
+        </p>
+    </li>
+    <li> Password attack
+        <p>
+            Use techniques such as brute force cracking, dictionary attacks, and keyboard walking attacks to try to 
+            decrypt users' passwords.
+        </p>
+    </li>
+</ol>
+
+<p>In terms of defense, traditional defense methods include:</p>
+<ol>
+    <li> Firewall
+        <p>
+            Used to monitor data packets entering and leaving the network and allow or block specific data flows based 
+            on preset rules.
+        </p>
+    </li>
+    <li> Anti-malware software
+        <p>
+            Software tools are used to detect, block, and remove malware such as viruses, worms, and Trojan horses.
+        </p>
+    </li>
+    <li> Encryption
+        <p>
+            Used to protect the security of data during storage and transmission, ensuring that only authorized users 
+            can access sensitive information.
+        </p>
+    </li>
+    <li> Vulnerability management
+        <p>
+            Regularly scan and fix security vulnerabilities in systems, software, and applications.
+        </p>
+    </li>
+    <li> Data backup
+        <p>
+            Back up important data regularly to prevent it from being lost or encrypted by malware.
+        </p>
+    </li>
+    <li> Multi-factor authentication
+        <p>
+            Require users to provide two or more forms of verification to prove their identity and increase account security.
+        </p>
+    </li>
+    <li> Security information and event management
+        <p>
+            Provides software solutions that analyze security alerts and events in real-time.
+        </p>
+    </li>
+    <li> Network isolation and segmentation
+        <p>
+            Dividing a network into smaller networks reduces an attacker's ability to move within the network.
+        </p>
+    </li>
+    <li> Access control
+        <p>
+            Ensure that only authorized users can access network resources, either through role-based access control 
+            (RBAC) or the principle of least privilege.
+        </p>
+    </li>
+    <li> Security configuration
+        <p>
+            Security hardens systems and applications to ensure they are configured according to best security practices.
+        </p>
+    </li>
+</ol>
+
+<p>
+    Generative cybersecurity AI involves the application of generative models to predict, simulate, and respond to cyber 
+    threats. Utilizing the generation capabilities of advanced algorithms, these artificial intelligence systems can 
+    generate adaptive and predictive models. In terms of offense, generative artificial intelligence can enhance the 
+    concealment of attacks, enrich attack methods, and cause greater damage to targets. In terms of defense, generative 
+    AI can not only understand malware signatures and attack strategies but also generate synthetic environments and 
+    data to train defense mechanisms. This article will explore various approaches to both attack and defense, from 
+    threat enhancement to automated security policy generation. As we explore these topics, we will also critically 
+    examine the ethical dimensions and potential risks associated with deploying generative models in sensitive security 
+    environments.
+</p>
+
+<h2><a id="CyberOffense"></a> 2. Generative AI for Cyber Offense </h2>
+
+<p>
+    A cyber-attack refers to any type of offensive action against computer information systems, infrastructure, computer 
+    networks, or personal computer equipment. With the popularity of generative artificial intelligence represented by 
+    ChatGPT, the means and methods of network attacks have been updated. In this section, we will highlight the current 
+    methods used by generative artificial intelligence techniques to generate different cyber-attacks, including social 
+    engineering attacks, phishing, Malware, SQL injection, zero-day attacks, and generating fake images, audio, and text.
+</p>
+
+<h3><a id="sea"></a>2.1 Cloud Service Models</h3>
+
+<p>
+    Social engineering is the use of social skills to trick an individual or employee into revealing confidential 
+    information. The impact of a successful social engineering attack on a network can be profound:
+</p>
+
+<ol>
+    <li> Unauthorized Access: 
+        <p>
+            Gained credentials allow attackers to move laterally within the network, accessing sensitive data and systems.
+        </p>
+    </li>
+    <li> Network Compromise:
+        <p>
+            Attackers can install malware, create backdoors, or exfiltrate data, leading to data breaches or network downtime.
+        </p>
+    </li>
+    <li> Erosion of Trust: 
+        <p>
+            Such attacks often leave a lasting impact on the trust within an organization, leading to heightened 
+            paranoia and potentially hindering smooth communication and operations.
+        </p>
+    </li>
+</ol>
+
+<p>
+    Generative artificial intelligence (represented by ChatGPT) can simulate fluent text that conforms to human language 
+    habits based on the provided context. Attackers can input the personal information they have collected (for example, 
+    in the example below, Student A's school, college, and student ID were obtained by the attacker), and use generative 
+    artificial intelligence to quickly generate a message that appears to be from a staff member or advisor at the 
+    victim's school. The text is almost indistinguishable from a formal notification text and may ask for a specific 
+    action, such as downloading a file containing a virus.
+    <a href="#gupta23"> [Gupta23] </a>
+</p>
+
+<figure><img src="img/Social_Engineering_Attack.png" width="400" alt="Social Engineering Attack with ChatGPT" id="fig1"> <figcaption>
+<BR>Figure 1. Social Engineering Attack </figcaption></figure>
+
+<p>
+    As shown in Figure 1, this use of generative artificial intelligence can quickly generate a large amount of text 
+    that is convincing to the victim, thereby increasing the likelihood of a successful attack. As shown in Figure 2, 
+    although there are currently corresponding prevention mechanisms on ChatGPT, such mechanisms can be easily 
+    circumvented using the method shown in Figure 1.
+</p>
+
+<figure><img src="img/Prevention_of_Social_Engineering_Attack.png" width="400" alt="Prevention of Social Engineering Attack" id="fig2"> <figcaption>
+<BR>Figure 2. Prevention of Social Engineering Attack </figcaption></figure>
+
+<h3><a id="phishing"></a>2.2 Phishing</h3>
+<p>
+    Phishing is an attack that uses email or other communications to impersonate a trusted entity and trick users into 
+    providing sensitive information such as usernames, passwords, and credit card details. This technique works by 
+    mass-sending messages that imitate legitimate companies and create a sense of urgency, prompting victims to take 
+    the actions expected by the attacker before thinking carefully.
+</p>
+
+<b>Public cloud</b>
+<p>
+    In this model, a CSC uses a vendor's cloud infrastructure which is shared publically via the Internet with many other
+    CSCs. This model is the most exposed and as such has a variety of inherent security risks that need to be considered.
+</p>
+
+<p>
+    Phishing attacks can be particularly damaging to network security for several reasons:
+</p>
+
+<ol>
+    <li> Credential Theft: 
+        <p>
+            Phishing often aims to steal user credentials, which can then be used to gain unauthorized access to network resources.
+        </p>
+    </li>
+    <li> Malware Spread:
+        <p>
+            Phishing emails can contain malicious attachments or links that, once clicked, can install malware on the 
+            network. This malware can lead to further exploitation, such as data theft, ransomware attacks, or even a 
+            complete network takeover.
+        </p>
+    </li>
+</ol>
+
+<p>
+    In generative AI, generative adversarial networks (GANs) are a type of AI known for their ability to create highly 
+    realistic synthetic data that attackers can train on different groups of people combined with previously collected 
+    information about victims. Different models generate a large number of targeted texts, thereby increasing the 
+    probability of successful attacks.
+    <a href="#khan21"> [Khan21] </a>
+</p>
+
+<figure><img src="img/Phishing.png" width="400" height="400" alt="Phishing" id="fig3"> <figcaption>
+<BR>Figure 3. Phishing </figcaption></figure>
+
+<p>
+    As shown in Figure 3, assuming that the attacker collects the information of a student currently studying at WUSTL 
+    and learns that he will be choosing courses shortly, he can create an email from WUSTL through ChatGPT and ask the 
+    recipient to Log in via the embedded link and get expedited. The email is well-worded and uses words that are 
+    effective in prompting recipients to click on the link and fill out the contained form without confirmation, 
+    thereby obtaining the victim's information. 
+    <a href="#dhoni23"> [Dhoni23] </a>
+</p>
+
+<figure><img src="img/Generate_Malicious_Domains.png" width="400" alt="Phishing" id="fig4"> <figcaption>
+<BR>Figure 4. Generate Malicious Domains </figcaption></figure>
+
+<p>
+    As shown in Figure 4, attackers can also use ChatGPT to generate some URLs that are very similar to shopping 
+    websites, schools, or government agencies, reducing the victim's vigilance and improving the success rate of the 
+    attack.
+</p>
+
+<h3><a id="Malware"></a>2.3 Malware</h3>
+<p>
+    Malware is an ever-present threat in cybersecurity, including viruses, worms, Trojans, ransomware, spyware, and 
+    adware. These various types of malware infect programs on computers to extort money and materials, monitor private 
+    communications, and continuously send advertisements. Traditional malware has high requirements for its writers, 
+    who usually require a deep understanding of computer networks, computer structures, and operating systems. 
+    Generative artificial intelligence can lower this threshold.
+</p>
+
+<p>
+    A study on ChatGPT showed that basic data and settings set by developers can be overridden through a method called 
+    "jailbreaking", allowing ChatGPT to generate the code that makes up the malware and conduct a detailed analysis of 
+    the code. The research demonstrates the risk of generative AI being used to develop malware.
+    <a href="#gupta23"> [Gupta23] </a>
+</p>
+
+<figure><img src="img/Pseudocode_for_Trojan_Horse.png" width="400" alt="Trojan Horse" id="fig5"> <figcaption>
+<BR>Figure 5. Pseudocode for Trojan Horse </figcaption></figure>
+
+<p>
+    As shown in Figure 5, although there are very strict restrictions on ChatGPT (ChatGPT is not allowed to output 
+    harmful content), pseudocode related to Trojan horses can still be output. This also lowers the threshold for 
+    generating malware.
+</p>
+
+<p>
+    The above pseudocode will be executed starting from the Main function. Normal user activities are simulated in the 
+    DisplayFakeAlert function, misleading the victim into thinking that the program he is running performs legitimate 
+    operations such as updating software. The PerformMaliciousAction function represents the Trojan's attack actions 
+    such as downloading malware and connecting to remote servers without the victim's complete knowledge.
+</p>
+
+<h3><a id="sql"></a>2.4 SQL Injection</h3>
+<p>
+    A SQL injection attack is an attack method in which an attacker can control or access the data stored in the 
+    database by inserting malicious SQL code into the back-end database. Through this attack method, the attacker can 
+    read, modify, and delete information in the SQL database. The core of this attack is the "malicious payload" created 
+    by the initiator of the attack. By changing the input content, the attacker can modify the database and execute 
+    malicious SQL commands.
+    <a href="#neupane23"> [Neupane23] </a>
+</p>
+
+<p>
+    With the advent of generative AI, attackers can leverage ChatGPT's text generation capabilities to create "malicious 
+    payloads" for SQL injection attacks. After breaking through the limitations of the ChatGPT generation model through 
+    a method called "jailbreaking", researchers found that it can easily generate many different types of payloads and 
+    use these payloads to effectively launch SQL injection attacks. 
+</p>
+
+<p>
+    Furthermore, an attacker can launch an attack against a specific target by inputting a large amount of input and 
+    output data about the target server. For example, add payloads to bypass the Web Application Firewall, learn from 
+    failed cases, and generate new payloads to carry out attacks.
+</p>
+
+<h3><a id="zda"></a>2.5 Zero-day Attack</h3>
+<p>
+    A zero-day attack is an attack that exploits an unknown vulnerability in software, often before the software 
+    developer understands and fixes it. With the emergence of ChatGPT, to better adapt to the work needs of all walks 
+    of life, many tools based on ChatGPT's API have emerged, such as ChatPDF for reading PDF files; ChatExcel for 
+    reading Excel tables; for summarizing videos ChatYoutube, etc.; and to better conduct penetration testing 
+    (authorized to simulate network attacks against computer systems, assess the security of the target system, and 
+    help identify security vulnerabilities), PentestGPT came into being. It is built on ChatGPT and runs in interactive 
+    mode to guide penetration testers through overall progress and specific actions. In terms of application, the model 
+    performs well in handling general problems on the HackTheBox platform (a technical competition practice platform 
+    for network security technicians).
+</p>
+
+<p>
+    Although the original intention of PentestGPT is to assist security personnel in better conducting technical 
+    testing to maintain the security of existing systems, its code is completely open source. It is not ruled out that 
+    criminals will use its basic principles to develop similar models. Given a sufficient data set about software 
+    vulnerabilities as input, similar generative artificial intelligence models can be used to analyze existing code, 
+    look for possible vulnerabilities, and automatically generate cyberattack strategies targeting the vulnerabilities 
+    before security personnel can find them.
+</p>
+
+<h3><a id="f3v"></a>2.6 Fake Voice, Videos, Photos</h3>
+<p>
+    On March 21, 2023, when news broke that former US President Trump was about to be arrested, a British independent 
+    journalist, Elliot Higgins, entered into the AI drawing tool Midjourney (which can generate images based on text) 
+    descriptive language, such as "Trump fell while being arrested" and "Trump's life in prison." Midjourney then 
+    generated a very realistic "news report picture" that if seen by an unsuspecting person, there was a high 
+    probability that it was believed to be true.
+</p>
+
+<p>
+    Through the above events, we can find that generative artificial intelligence can already simulate very realistic 
+    images. Although there are still illogical and unnatural features in some details (human hands, belts, etc.), these 
+    details can be simulated through PS-made simple modifications.[Huang22] This also poses a great challenge to 
+    cybersecurity-related staff. Attackers can use generative artificial intelligence to generate the images, audio, 
+    and text they want, which can be used to create fake user profiles, impersonate public officials to deceive victims 
+    and other crimes. 
+    <a href="#oh23"> [Oh23] </a>
+</p>
+
+<h2><a id="CyberDefense"></a>3. Generative AI for Cyber Defense</h2>
+<p>
+    Cyber defense refers to a series of measures and processes taken by enterprises or individuals in cyberspace. These 
+    measures are generally designed to protect networks, computer systems, associated hardware and software, and data 
+    from attacks or intrusions. This chapter will explore the impact of generative artificial intelligence on cyber 
+    defense, including Security Information and Event Management, Vulnerability, Anti-malware Software, Intrusion 
+    Detection Systems, and Intrusion Prevention Systems and Employee Training.
+</p>
+
+<h3><a id="eventman"></a>3.1 Security Information and Event Management</h3>
+<p>
+    Security information and event management refers to software solutions that provide real-time analysis of security 
+    alerts and events.
+</p>
+
+<p>
+    In network defense, analyzing log files that record events, operations, transactions, or communications that occur 
+    is a very important task, and ChatGPT can help process large amounts of log data and generate detailed reports based 
+    on the input data. The report can include exceptions or security issues recorded in the logs and further provide 
+    suggestions for improvements to the included issues.
+</p>
+
+<p>
+    As shown in Figure 6, after inputting a simple EC2 log, ChatGPT analyzed the code line by line and briefly 
+    described the events recorded in the log in natural language.
+</p>
+
+<figure><img src="img/Log_Data_Analysis.png" width="400" alt="Log Data Analysis" id="fig6"> <figcaption>
+<BR>Figure 6. Log Data Analysis </figcaption></figure>
+
+<p>
+    ChatGPT can also analyze and process online information sources from social media, news photos, journals, and 
+    magazines, identify current potential security threats, and make decision-making recommendations for these threats. 
+    This application can help companies effectively improve their security posture and effectively prevent possible 
+    cyber attacks.
+</p>
+
+<h3><a id="vulman"></a>3.2 Vulnerability Management</h3>
+<p>
+    Vulnerability management refers to regularly scanning and fixing security vulnerabilities in systems, software, and 
+    applications. Security vulnerabilities in the code will seriously affect the CIA (confidentiality, integrity, 
+    availability) of the system. Therefore, security inspection of the code is a very important task. However, most of 
+    the code is written by programmers, and various errors will inevitably occur. The emergence of generative artificial 
+    intelligence can help programmers detect potential security vulnerabilities in the code and provide suggestions for 
+    improvements to the code.
+    <a href="#gupta23"> [Gupta23] </a>
+</p>
+
+<figure><img src="img/Detect_Vulnerability.png" width="400" alt="Detect Vulnerability" id="fig7"> <figcaption>
+<BR>Figure 7. Detect Vulnerability </figcaption></figure>
+
+<p>
+    As shown in Figure 7, we take a classic C language function that contains stack overflow risks as an example. After 
+    entering the code into ChatGPT, ChatGPT gives the security risks in the code: the gets() function does not check the 
+    user's input length. , if the user inputs more than 3 characters, it will overwrite adjacent memory. Possible attacks 
+    are also given: an attacker may replace the return address of the echo() function with a pointer to malicious code, 
+    causing the malicious code to run.
+</p>
+
+<figure><img src="img/Code_Improvement_Solutions.png" width="400" alt="Code Improvement Solutions" id="fig8"> <figcaption>
+<BR>Figure 8. Code Improvement Solutions </figcaption></figure>
+
+<p>
+    At the same time, as shown in Figure 8, generative artificial intelligence will also provide code improvement 
+    solutions, that is, to abandon the use of the unsafe function gets() and replace it with a safer function (such as 
+    the fgets() function), to prevent the risk of buffer overflow and provides corresponding examples.
+</p>
+
+<h3><a id="antimal"></a>3.3 Anti-malware Software</h3>
+<p>
+    Anti-malware is a software tool used to detect, block, and remove malware such as viruses, worms, Trojan horses, and 
+    so on. Integrating generative artificial intelligence into anti-malware software can help developers quickly identify 
+    attackers' attack methods and attack intentions.
+    <a href="#prasad23"> [Prasad23] </a>
+</p>
+
+<figure><img src="img/Identify_Malicious_Code.png" width="400" alt="Identify Malicious Code" id="fig9"> <figcaption>
+<BR>Figure 9. Identify Malicious Code </figcaption></figure>
+
+<p>
+    As shown in Figure 9, by inputting a piece of malicious code, ChatGPT quickly identified the attack method used by 
+    the attacker: a VBA project that manipulated documents in a manner typical of malware, specifically macro viruses 
+    targeting Microsoft Office applications. And analyzed the file operations line by line: modification of the 
+    ConsecutiveHyphensLimit attribute, creating a new .bas file, obfuscating the code, changing the VBA code, 
+    automatically saving changes, and adding external code. The final solution was to not run the file, keep antivirus 
+    software turned on, and use Microsoft Office's built-in macro protection feature.
+</p>
+
+<h3><a id="ids/ips"></a>3.4 Intrusion Detection Systems and Intrusion Prevention Systems (IDS/IPS)</h3>
+<P>
+    Intrusion detection systems and intrusion prevention systems (IDS/IPS) are systems used to monitor network and 
+    system activities, identify suspicious behavior, and take measures to prevent or mitigate attacks.
+</P>
+
+<P>
+    Generative artificial intelligence can be integrated with intrusion detection systems to provide timely warnings and 
+    notifications of potential threats through the input of large amounts of network logs, security alerts, and other 
+    text data sets. Generative artificial intelligence can not only warn of individual attack events but also summarize 
+    and discover the trends of attack activities and the shortcomings of the own system from the attack history, thereby 
+    improving the internal system.
+</P>
+
+<P>
+    When it comes to intrusion prevention systems, timely responses can help developers mitigate losses due to 
+    cyberattacks. Therefore, it is crucial to respond quickly and accurately, and generative AI can help us simplify 
+    this process.
+</P>
+
+<figure><img src="img/Playbook_for_SQL_Injection_Attack.png" width="400" alt="Playbook for SQL Injection Attack" id="fig10"> <figcaption>
+<BR>Figure 10. Playbook for SQL Injection Attack </figcaption></figure>
+
+<P>
+    As shown in Figure 10, assuming we encounter a SQL injection attack, the GPT-4 model quickly generates a clear 
+    response strategy. The response strategy is written in natural language and can help us respond to cyberattacks 
+    in a fast and correct way, thereby reducing losses.
+</P>
+
+<h3><a id="emptrain"></a>3.5 Employee Training</h3>
+<P>
+    Generative AI can also be applied to employee training. Taking ChatGPT as an example, the GPT-4 model can generate 
+    explanations and suggestions about moral principles. By analyzing and explaining these ethical principles and 
+    generating corresponding scenarios and cases, we can help developers better understand these principles and keep 
+    them in mind in future work.
+</P>
+
+<h2><a id="summary"></a>4. Summary</h2>
+<p>
+    The offensive and defensive ends of network security are in a relationship of dynamic adaptation and common 
+    development. Offensive security measures allow us to discover and repair security vulnerabilities, while better 
+    defense methods will give birth to new offensive methods. This article discusses the current applications of 
+    generative artificial intelligence on both sides of network attack and network defense. In the future, network 
+    attacks and network defense will inevitably start a tug-of-war, and more new generative artificial intelligence 
+    will appear. How artificial intelligence is applied in this field. Here, we call for collaboration between the 
+    research community, industry stakeholders, and policymakers to harness the benefits of generative AI while guarding 
+    against its possible misuse.
+    <a href="#renaud23"> [Renaud23] </a>
+</p>
+
+<h2><a id="ref"></a>5. References</h2>
+
+<table>
+    <tbody>
+    <tr style="vertical-align:top">
+        <td><a id="oh23">[Oh23]</a></td>
+        <td>S. Oh and T. Shon, "Cybersecurity Issues in Generative AI," 2023 International Conference on Platform Technology and Service (PlatCon), Busan, Korea, Republic of, 2023, pp. 97-100, doi: 10.1109/PlatCon60102.2023.10255179.
+            URL: <a href="https://ieeexplore.ieee.org/document/10255179">
+                https://ieeexplore.ieee.org/document/10255179
+            </a>
+        </td>
+    </tr>
+    <tr style="vertical-align:top">
+        <td><a id="gupta23">[Gupta23]</a></td>
+        <td>
+            M. Gupta, C. Akiri, K. Aryal, E. Parker and L. Praharaj, "From ChatGPT to ThreatGPT: Impact of Generative AI in Cybersecurity and Privacy," in IEEE Access, vol. 11, pp. 80218-80245, 2023, doi: 10.1109/ACCESS.2023.3300381.
+            URL: <a href="https://ieeexplore.ieee.org/document/10198233">
+                https://ieeexplore.ieee.org/document/10198233
+            </a>
+        </td>
+    </tr>
+    <tr style="vertical-align:top">
+        <td><a id="dhoni23">[Dhoni23]</a></td>
+        <td>
+            Dhoni, Pan, and Ravinder Kumar. "Synergizing Generative AI and Cybersecurity: Roles of Generative AI Entities, Companies, Agencies, and Government in Enhancing Cybersecurity." (2023).
+            URL: <a href="https://www.techrxiv.org/articles/preprint/Synergizing_Generative_AI_and_Cybersecurity_Roles_of_Generative_AI_Entities_Companies_Agencies_and_Government_in_Enhancing_Cybersecurity/23968809">
+                https://www.techrxiv.org/articles/preprint/Synergizing_Generative_AI_and_Cybersecurity_Roles_of_Generative_AI_Entities_Companies_Agencies_and_Government_in_Enhancing_Cybersecurity/23968809
+            </a>
+        </td>
+    </tr>
+    <tr style="vertical-align:top">
+        <td><a id="huang22">[Huang22]</a></td>
+        <td>
+            Y. Huang, F. Juefei-Xu, Q. Guo, Y. Liu and G. Pu, "FakeLocator: Robust Localization of GAN-Based Face Manipulations," in IEEE Transactions on Information Forensics and Security, vol. 17, pp. 2657-2672, 2022, doi: 10.1109/TIFS.2022.3141262.
+            URL: <a href="https://ieeexplore.ieee.org/document/9673747">
+                https://ieeexplore.ieee.org/document/9673747
+            </a>
+        </td>
+    </tr>
+    <tr style="vertical-align:top">
+        <td><a id="renaud23">[Renaud23]</a></td>
+        <td>
+            Renaud, Karen, Merrill Warkentin, and George Westerman. From ChatGPT to HackGPT: Meeting the Cybersecurity Threat of Generative AI. MIT Sloan Management Review, 2023.
+            URL: <a href="https://digitalrosh.com/wp-content/uploads/2023/06/from-chatgpt-to-hackgpt-meeting-the-cybersecurity-threat-of-generative-ai-1.pdf">
+                https://digitalrosh.com/wp-content/uploads/2023/06/from-chatgpt-to-hackgpt-meeting-the-cybersecurity-threat-of-generative-ai-1.pdf
+            </a>
+        </td>
+    </tr>
+    <tr style="vertical-align:top">
+        <td><a id="hasan21">[Hasan21]</a></td>
+        <td>
+            M. M. Al Hasan, N. Vashistha, S. Taheri, M. Tehranipoor and N. Asadizanjani, "Generative Adversarial Network for Integrated Circuits Physical Assurance Using Scanning Electron Microscopy," 2021 IEEE International Symposium on the Physical and Failure Analysis of Integrated Circuits (IPFA), Singapore, Singapore, 2021, pp. 1-12, doi: 10.1109/IPFA53173.2021.9617416.
+            URL: <a href="https://ieeexplore.ieee.org/document/9617416">
+                https://ieeexplore.ieee.org/document/9617416
+            </a>
+        </td>
+    </tr>
+    <tr style="vertical-align:top">
+        <td><a id="neupane23">[Neupane23]</a></td>
+        <td>
+            Neupane, Subash, Ivan A. Fernandez, Sudip Mittal, and Shahram Rahimi. "Impacts and Risk of Generative AI Technology on Cyber Defense." arXiv preprint arXiv:2306.13033 (2023).
+            URL: <a href="https://arxiv.org/abs/2306.13033">
+                https://arxiv.org/abs/2306.13033
+            </a>
+        </td>
+    </tr>
+    <tr style="vertical-align:top">
+        <td><a id="khan21">[Khan21]</a></td>
+        <td>
+            H. Khan, M. Alam, S. Al-Kuwari and Y. Faheem, "OFFENSIVE AI: UNIFICATION OF EMAIL GENERATION THROUGH GPT-2 MODEL WITH A GAME-THEORETIC APPROACH FOR SPEAR-PHISHING ATTACKS," Competitive Advantage in the Digital Economy (CADE 2021), Online Conference, 2021, pp. 178-184, doi: 10.1049/icp.2021.2422.
+            URL: <a href="https://ieeexplore.ieee.org/document/9650959">
+            https://ieeexplore.ieee.org/document/9650959
+        </a>
+        </td>
+    </tr>
+    <tr style="vertical-align:top">
+        <td><a id="prasad23">[Prasad23]</a></td>
+        <td>
+            S. G. Prasad, V. C. Sharmila and M. K. Badrinarayanan, "Role of Artificial Intelligence based Chat Generative Pre-trained Transformer (ChatGPT) in Cyber Security," 2023 2nd International Conference on Applied Artificial Intelligence and Computing (ICAAIC), Salem, India, 2023, pp. 107-114, doi: 10.1109/ICAAIC56838.2023.10141395.
+            URL: <a href="https://ieeexplore.ieee.org/document/10141395">
+            https://ieeexplore.ieee.org/document/10141395
+        </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2><a id="acronym"></a>6. List of Acronyms</h2>
+<ul>
+    <li>SQL - Structured Query Language</li>
+    <li>AI - Artificial intelligence</li>
+    <li>IDS - Intrusion Detection System</li>
+    <li>IPS - Intrusion Prevention System</li>
+    <li>CIA - Confidentiality, Integrity, Availability</li>
+    <li>GAN - Generative Adversarial Network</li>
+</ul>
+</body>
+</html>
